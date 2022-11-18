@@ -1,15 +1,24 @@
 package ru.ogtulashvili.nomadapp.presentation
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import android.view.Menu
-import android.view.MenuItem
-import ru.ogtulashvili.nomadapp.databinding.ActivityMainBinding
+import kotlinx.android.synthetic.main.activity_main.*
+import ru.ogtulashvili.nomadapp.R
+import ru.ogtulashvili.nomadapp.domain.GetSomeArticle
 
 class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        @SuppressLint("SetTextI18n")
+        fun articleView(){
+            val tvArticle = tv_some_article
+            val getSomeArticle = GetSomeArticle()
+
+            tvArticle.text = "Read it: $getSomeArticle"
+        }
+        return articleView()
+    }
 }
